@@ -171,7 +171,7 @@ function layout3d() {
 }
 const CFG = { displayModeBar:false, responsive:true };
 function lerpColor(t) {
-  const c0=[90,171,245], c1=[240,92,92];
+  const c0=[0,191,255], c1=[255,55,90];
   return `rgb(${Math.round(c0[0]+t*(c1[0]-c0[0]))},${Math.round(c0[1]+t*(c1[1]-c0[1]))},${Math.round(c0[2]+t*(c1[2]-c0[2]))})`;
 }
 
@@ -194,7 +194,7 @@ function buildTraces(nodes, edges, maxSize) {
   const ns = nodes.map(n => 4 + 10*(n.size/maxSize));
   const nodeTrace = { type:"scatter3d", mode:"markers",
     x:nodes.map(n=>n.pos[0]), y:nodes.map(n=>n.pos[1]), z:nodes.map(n=>n.pos[2]),
-    marker:{ color:nc, size:ns, line:{color:"rgba(255,255,255,0.25)", width:0.5} },
+    marker:{ color:nc, size:ns, line:{color:"rgba(255,255,255,0.45)", width:0.75} },
     hovertemplate:"node %{customdata}<extra></extra>", customdata:nodes.map(n=>n.id) };
   // Highlight visibility is driven by SIZE (0 = invisible), not opacity:
   // gl3d (scatter3d/WebGL) does not reliably honor a per-point `marker.opacity`
